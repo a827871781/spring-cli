@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.syz.cli.Dao.Test1Dao">
+
+	<!-- 基础结果集 -->
+	<resultMap id="base_map" type="com.syz.cli.entity.Test1">
+		<id property="id" column="id"/>
+		<result property="value" column="value"/>
+		<result property="key" column="key"/>
+	</resultMap>
+
+
+
+	<!-- 需要查的字段 -->
+	<sql id="item_info_colomn">
+	 id,value ,key
+	</sql>
+
+	<select id="selectAll" resultMap="base_map">
+		SELECT * FROM `test1`
+	</select>
+
+
+
+</mapper>
