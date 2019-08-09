@@ -19,9 +19,7 @@ public class User extends Model<User> {
     @TableField(value = "password")
     private String password;
 
-    public static final String COL_USERNAME = "username";
 
-    public static final String COL_PASSWORD = "password";
 
     @Override
     protected Serializable pkVal() {

@@ -3,6 +3,7 @@ package com.syz.cli.entity;
 
 import com.baomidou.mybatisplus.activerecord.Model;
 import com.baomidou.mybatisplus.annotations.TableField;
+import com.baomidou.mybatisplus.annotations.TableLogic;
 import com.baomidou.mybatisplus.annotations.TableName;
 import com.baomidou.mybatisplus.enums.FieldStrategy;
 import lombok.AllArgsConstructor;
@@ -27,7 +28,7 @@ public class Test1 extends Model<Test1> {
 
     private String id;
     private String value;
-    //@TableField(strategy = FieldStrategy.IGNORED)
+    @TableLogic
     private String key;
 
     @Override

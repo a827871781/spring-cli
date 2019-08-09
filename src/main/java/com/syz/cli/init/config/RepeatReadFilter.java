@@ -24,7 +24,6 @@ public class RepeatReadFilter implements Filter {
         if(request instanceof HttpServletRequest) {
             requestWrapper = new RequestWrapper((HttpServletRequest) request);
         }
-        //System.out.println("doFilter");
         if(requestWrapper == null) {
             chain.doFilter(request, response);
         } else {

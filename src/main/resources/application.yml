@@ -1,10 +1,34 @@
-
+#端口号
+server:
+    port: 8080
+    
+#    security:
+#        user:
+#            name: syz
+#            password: 123
 spring:
     datasource:
+        driver-class-name: com.mysql.jdbc.Driver
+        druid:
+            initial-size: 5
+            max-active: 20
+            max-pool-prepared-statement-per-connection-size: 20
+            # 配置获取连接等待超时的时间
+            max-wait: 60000
+            # 配置一个连接在池中最小生存的时间，单位是毫秒
+            min-evictable-idle-time-millis: 30000
+            min-idle: 5
+            test-on-borrow: false
+            test-on-return: false
+            test-while-idle: true
+            ## 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+            time-between-eviction-runs-millis: 60000
+            use-global-data-source-stat: true
+            validation-query: SELECT 1 FROM DUAL
+        type: com.alibaba.druid.pool.DruidDataSource
         url: jdbc:mysql://59.110.168.107:3306/test
         username: root
         password: uAiqwVwjJ8-i
-        driver-class-name: com.mysql.jdbc.Driver
         
     data:
         elasticsearch:
@@ -12,11 +36,7 @@ spring:
             cluster-nodes: 59.110.168.107:9300
     main:
         allow-bean-definition-overriding: true
-#    security:
-#        user:
-#            name: syz
-#            password: 123
-
+        
 rsocket:
     server:
          port=7000: 7000
@@ -25,14 +45,21 @@ mybatis-plus:
     mapper-locations: classpath:/mapper/*Mapper.xml
     global-config:
         refresh-mapper: true
+        #逻辑删除配置 在要删除的字段 增加 @TableLogic 注解
+        sql-injector: com.baomidou.mybatisplus.mapper.LogicSqlInjector
+        #配置逻辑删除字段为1是删除
+        logic-delete-value: 1
+        #配置逻辑删除字段为0是未删除
+        logic-not-delete-value: 0
+        
 swagger:
     enabled: true
-    
+ 
+ #打印sql
 logging:
     level:
         com:
             syz:
                 cli:
                     Dao: DEBUG
-server:
-    port: 8080
+

@@ -13,6 +13,7 @@ public class InterceptorConfig implements WebMvcConfigurer {
                 .addPathPatterns("/**");
         registry.addInterceptor(new AuthenticationInterceptor())
                 .addPathPatterns("/**");
+
     }
 
 }

@@ -19,7 +19,6 @@ import javax.sql.DataSource;
 import java.io.IOException;
 
 @Configuration
-@MapperScan("com.syz.cli.Dao")
 public class MybatisPlusConfig {
 
 
