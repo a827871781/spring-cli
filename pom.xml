@@ -84,7 +84,7 @@
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
-            <version>1.2.32</version>
+            <version>1.2.83</version>
         </dependency>
         <!--    MP  会维护mybatis 的依赖，所以此处并不需要依赖mybatis
          ，还有分页插件也是，千万别再引入PageHelper   -->
